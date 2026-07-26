@@ -5,7 +5,7 @@ import { ShoppingBag, MessageCircle, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/common/Button';
 
 export default function CTA() {
-  const whatsappUrl = "https://wa.me/6281288889900?text=Halo%20Serena%20Cemilan%2C%20saya%20tertarik%20dengan%20produk%20di%20galeri%20dan%20ingin%20memesan.";
+  const whatsappUrl = "https://wa.me/+62812-9065-5797?text=Halo%20Serena%20Cemilan%2C%20saya%20tertarik%20dengan%20produk%20di%20galeri%20dan%20ingin%20memesan.";
 
   return (
     <section className="py-16 lg:py-24 bg-[#FAFAFA] relative overflow-hidden">
