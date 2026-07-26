@@ -15,7 +15,7 @@ const stats = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#FAFAFA]">
-      <div className="relative h-[520px] w-full sm:h-[560px] lg:h-[600px]">
+      <div className="relative h-[660px] w-full sm:h-[600px] lg:h-[640px]">
         {/* Full-bleed background image */}
         <Image
           src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1400&auto=format&fit=crop"
@@ -33,7 +33,7 @@ export default function Hero() {
 
         {/* Text content */}
         <div className="container-app relative flex h-full items-center">
-          <div className="max-w-xl pb-24 sm:pb-28 lg:pb-32">
+          <div className="max-w-xl pb-36 sm:pb-32 lg:pb-36">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05, ease: "easeOut" }}
-              className="mt-5 max-w-md text-sm leading-relaxed text-[#51443C]/80 sm:text-base"
+              className="mt-5 max-w-md text-sm leading-relaxed text-[#51443C]/80 sm:max-w-sm sm:text-base"
             >
               A family-owned snack business dedicated to preserving authentic
               Indonesian flavors through handcrafted recipes passed down
@@ -61,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              className="mt-7 flex flex-wrap items-center gap-6"
+              className="mt-7 flex flex-wrap items-center gap-4 sm:gap-6"
             >
               <Link
                 href="/products"
