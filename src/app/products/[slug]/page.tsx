@@ -20,13 +20,19 @@ export async function generateMetadata({
   const product = getProductBySlug(slug);
   if (!product) return { title: "Product Not Found" };
 
+  // product.image can be a plain URL string or a statically-imported image
+  // object (StaticImageData) — Open Graph only accepts a URL string, so
+  // pull out the .src when it's the latter.
+  const ogImageUrl =
+    typeof product.image === "string" ? product.image : product.image.src;
+
   return {
     title: product.name,
     description: product.description,
     openGraph: {
       title: `${product.name} | Serena Cemilan`,
       description: product.description,
-      images: [product.image],
+      images: [ogImageUrl],
     },
   };
 }
