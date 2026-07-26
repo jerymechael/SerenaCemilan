@@ -26,7 +26,7 @@ const EDGE_BUFFER = 2; // px tolerance so the wrap check isn't thrown off by sub
 export function Categories() {
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const draggingRef = useRef(false);
   const isCorrectingRef = useRef(false);
 
