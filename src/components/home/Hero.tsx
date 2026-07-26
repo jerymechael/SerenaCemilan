@@ -17,7 +17,7 @@ const stats = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream">
-      <div className="relative h-[560px] w-full sm:h-[600px] lg:h-[640px]">
+      <div className="relative h-[720px] w-full sm:h-[600px] lg:h-[640px]">
         {/* Full-bleed background image */}
         <Image
           src={heroImage}
@@ -35,7 +35,7 @@ export function Hero() {
 
         {/* Text content */}
         <div className="container-app relative flex h-full items-center">
-          <div className="max-w-xl pb-28 sm:pb-32 lg:pb-36">
+          <div className="max-w-xl pb-44 sm:pb-32 lg:pb-36">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              className="mt-5 max-w-sm text-sm leading-relaxed text-foreground/60 sm:text-base"
+              className="mt-5 max-w-md text-sm leading-relaxed text-foreground/60 sm:max-w-sm sm:text-base"
             >
               Savor the authentic taste of Indonesian heritage with our
               handcrafted, premium snacks. Made with traditional recipes
@@ -64,7 +64,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              className="mt-7 flex flex-wrap items-center gap-6"
+              className="mt-7 flex flex-wrap items-center gap-4 sm:gap-6"
             >
               <Button href="/products" size="lg">
                 Explore Collections
