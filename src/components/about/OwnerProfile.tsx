@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Heart, Mail, MessageCircle, Sparkles, Award } from 'lucide-react';
 import { InstagramIcon, FacebookIcon } from '@/components/common/SocialIcons';
+import ownerPhoto from '@/lib/data/about/owner.jpg';
 
 export default function OwnerProfile() {
   const socialLinks = [
@@ -30,8 +31,8 @@ export default function OwnerProfile() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] card-shadow">
                 <Image
-                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop"
-                  alt="Serena Family - Founders of Serena Cemilan"
+                  src={ownerPhoto}
+                  alt="Naomi Dermawati & Family - Founders of Serena Cemilan"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -43,10 +44,10 @@ export default function OwnerProfile() {
                     FOUNDER & MASTER BAKER
                   </div>
                   <p className="font-display font-bold text-2xl text-white">
-                    Serena Rahardjo & Family
+                    Naomi Dermawati & Family
                   </p>
                   <p className="text-xs text-white/80 font-medium">
-                    Crafting Heritage Snacks Since 2014
+                    Crafting Heritage Snacks Since 2020
                   </p>
                 </div>
               </div>
@@ -77,7 +78,7 @@ export default function OwnerProfile() {
                   &ldquo;To us, baking traditional Indonesian snacks is not just a business—it is an act of love to share warmth, comfort, and memories of home with families across the nation.&rdquo;
                 </p>
                 <p className="text-xs font-bold text-[#8B5E3C] text-right font-display">
-                  — Serena Rahardjo, Founder
+                  — Naomi Dermawati, Founder
                 </p>
               </div>
 
