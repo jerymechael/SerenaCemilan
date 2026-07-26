@@ -1,10 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 
-export function ImageGallery({ images, alt }: { images: string[]; alt: string }) {
+export function ImageGallery({
+  images,
+  alt,
+}: {
+  images: (string | StaticImageData)[];
+  alt: string;
+}) {
   const [active, setActive] = useState(0);
 
   return (
@@ -22,7 +28,7 @@ export function ImageGallery({ images, alt }: { images: string[]; alt: string })
       <div className="mt-4 grid grid-cols-3 gap-3">
         {images.map((src, i) => (
           <button
-            key={src}
+            key={i}
             onClick={() => setActive(i)}
             className={cn(
               "relative aspect-square overflow-hidden rounded-2xl border-2 transition-colors",
