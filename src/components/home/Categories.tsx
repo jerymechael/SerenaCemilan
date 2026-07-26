@@ -23,6 +23,7 @@ const categories = [
 const AUTO_SPEED = 0.6; // px per animation frame (~36px/s at 60fps)
 const RESUME_DELAY = 1200; // ms of inactivity before auto-scroll resumes
 const EDGE_BUFFER = 2; // px tolerance so the wrap check isn't thrown off by subpixel rounding
+const DRAG_THRESHOLD = 6; // px of mouse movement before a pointerdown counts as a drag, not a click
 
 export function Categories() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -30,6 +31,8 @@ export function Categories() {
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const draggingRef = useRef(false);
   const isCorrectingRef = useRef(false);
+  const pointerStartXRef = useRef(0);
+  const pointerMovedRef = useRef(false);
 
   // Duplicate the list so the track has two identical halves. Whichever
   // direction the user scrolls, once they cross out of the first half we
@@ -99,25 +102,46 @@ export function Categories() {
 
   // Click-and-drag scrolling for desktop mouse users. Uses movementX (delta
   // since last frame) rather than an absolute start position, so it keeps
-  // working correctly even if a wrap-jump happens mid-drag.
+  // working correctly even if a wrap-jump happens mid-drag. Pointer capture
+  // is deferred until the mouse actually moves past DRAG_THRESHOLD, so a
+  // plain click on a card (no movement) still navigates normally instead of
+  // being swallowed as a drag.
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
     const track = trackRef.current;
     if (!track) return;
     draggingRef.current = true;
-    track.setPointerCapture(e.pointerId);
-    pauseThenResume();
+    pointerMovedRef.current = false;
+    pointerStartXRef.current = e.clientX;
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const track = trackRef.current;
     if (!track || !draggingRef.current) return;
+
+    if (!pointerMovedRef.current) {
+      const distance = Math.abs(e.clientX - pointerStartXRef.current);
+      if (distance < DRAG_THRESHOLD) return;
+      pointerMovedRef.current = true;
+      track.setPointerCapture(e.pointerId);
+      pauseThenResume();
+    }
+
     track.scrollLeft -= e.movementX;
   };
 
   const endDrag = () => {
     draggingRef.current = false;
-    pauseThenResume();
+    if (pointerMovedRef.current) pauseThenResume();
+  };
+
+  // If the pointer moved far enough to count as a drag, swallow the click
+  // that follows so it doesn't also trigger the card's link navigation.
+  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pointerMovedRef.current) {
+      e.preventDefault();
+      pointerMovedRef.current = false;
+    }
   };
 
   return (
@@ -166,6 +190,7 @@ export function Categories() {
               key={`${category.slug}-${i}`}
               href={`/products?category=${encodeURIComponent(category.name)}`}
               draggable={false}
+              onClick={handleCardClick}
               className="group relative block aspect-square w-[62vw] shrink-0 overflow-hidden rounded-3xl border border-white/40 card-shadow transition-shadow duration-300 hover:card-shadow-lg sm:w-56 lg:w-64"
             >
               <Image
