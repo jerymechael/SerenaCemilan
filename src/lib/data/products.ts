@@ -7,6 +7,7 @@ import kacangtoples from "@/lib/data/gallery/kacangtoples.jpeg";
 import kembangloyang from "@/lib/data/gallery/kembangloyang.jpeg";
 import keripikpisang from "@/lib/data/gallery/keripikpisang.jpeg";
 import rempeyek from "@/lib/data/gallery/rempeyek.jpeg";
+import hampersPaket from "@/lib/data/categoryproduct/Hampers.jpeg";
 
 export const products: Product[] = [
   {
@@ -145,6 +146,27 @@ export const products: Product[] = [
     weight: "250g / pouch",
     packaging: "Resealable foil pouch",
     badge: "Limited",
+    inStock: true,
+  },
+  {
+    id: "p8",
+    slug: "paket-hampers-keluarga",
+    name: "Paket Hampers Keluarga",
+    category: "Hampers",
+    price: 150000,
+    compareAtPrice: 175000,
+    rating: 4.9,
+    reviewCount: 21,
+    image: hampersPaket,
+    gallery: [hampersPaket],
+    description: "A curated gift box of our best-selling snacks, ready to share.",
+    longDescription:
+      "Our Family Hampers Package brings together a hand-picked selection of Serena Cemilan favorites — Premium Nastar, Kacang Bawang, and Rempeyek — packed in an elegant reusable box. Perfect for holidays, celebrations, or simply spoiling someone you love.",
+    ingredients: ["Assorted snacks (see individual items for full ingredient list)"],
+    shelfLife: "2 months (sealed box, room temperature)",
+    weight: "1.2kg / box (3 items)",
+    packaging: "Reusable gift box with ribbon",
+    badge: "New",
     inStock: true,
   },
 ];

@@ -164,7 +164,7 @@ export function Categories() {
           {loopCategories.map((category, i) => (
             <Link
               key={`${category.slug}-${i}`}
-              href={`/products?category=${encodeURIComponent(category.slug)}`}
+              href={`/products?category=${encodeURIComponent(category.name)}`}
               draggable={false}
               className="group relative block aspect-square w-[62vw] shrink-0 overflow-hidden rounded-3xl border border-white/40 card-shadow transition-shadow duration-300 hover:card-shadow-lg sm:w-56 lg:w-64"
             >

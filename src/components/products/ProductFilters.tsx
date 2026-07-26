@@ -14,6 +14,7 @@ const CATEGORY_ORDER: ProductCategory[] = [
   "Cookies",
   "Crackers",
   "Chips",
+  "Hampers",
 ];
 
 export type SortOption = "featured" | "price-asc" | "price-desc" | "rating";
