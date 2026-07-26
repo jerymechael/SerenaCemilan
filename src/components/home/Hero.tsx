@@ -17,7 +17,7 @@ const stats = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream">
-      <div className="relative h-[720px] w-full sm:h-[600px] lg:h-[640px]">
+      <div className="relative h-[660px] w-full sm:h-[600px] lg:h-[640px]">
         {/* Full-bleed background image */}
         <Image
           src={heroImage}
@@ -35,7 +35,7 @@ export function Hero() {
 
         {/* Text content */}
         <div className="container-app relative flex h-full items-center">
-          <div className="max-w-xl pb-44 sm:pb-32 lg:pb-36">
+          <div className="max-w-xl pb-36 sm:pb-32 lg:pb-36">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
