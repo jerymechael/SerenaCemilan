@@ -2,12 +2,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Heart, Instagram, Facebook, Mail, MessageCircle, Sparkles, Award } from 'lucide-react';
+import { Heart, Mail, MessageCircle, Sparkles, Award } from 'lucide-react';
+import { InstagramIcon, FacebookIcon } from '@/components/common/SocialIcons';
 
 export default function OwnerProfile() {
   const socialLinks = [
-    { icon: Instagram, label: 'Instagram', href: '#' },
-    { icon: Facebook, label: 'Facebook', href: '#' },
+    { icon: InstagramIcon, label: 'Instagram', href: '#' },
+    { icon: FacebookIcon, label: 'Facebook', href: '#' },
     { icon: MessageCircle, label: 'WhatsApp', href: '#' },
     { icon: Mail, label: 'Email', href: '#' },
   ];
@@ -73,7 +74,7 @@ export default function OwnerProfile() {
 
               <div className="p-4 rounded-2xl bg-[#FFF8F0] border border-[#D8A25E]/30 text-[#6E4A2E] space-y-1">
                 <p className="text-sm font-display italic leading-relaxed">
-                  "To us, baking traditional Indonesian snacks is not just a business—it is an act of love to share warmth, comfort, and memories of home with families across the nation."
+                  &ldquo;To us, baking traditional Indonesian snacks is not just a business—it is an act of love to share warmth, comfort, and memories of home with families across the nation.&rdquo;
                 </p>
                 <p className="text-xs font-bold text-[#8B5E3C] text-right font-display">
                   — Serena Rahardjo, Founder

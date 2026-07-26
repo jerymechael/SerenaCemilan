@@ -1,7 +1,8 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MessageCircle, ExternalLink, Share2, Youtube } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, ExternalLink, Share2 } from 'lucide-react';
+import { InstagramIcon, FacebookIcon, YoutubeIcon } from '@/components/common/SocialIcons';
 
 export default function InfoSidebar() {
   const socialCards = [
@@ -9,7 +10,7 @@ export default function InfoSidebar() {
       name: 'Instagram',
       handle: '@serenacemilan',
       followers: '24.5K Followers',
-      icon: Instagram,
+      icon: InstagramIcon,
       href: '#',
       color: 'hover:border-pink-500 hover:text-pink-600',
     },
@@ -25,7 +26,7 @@ export default function InfoSidebar() {
       name: 'Facebook',
       handle: 'Serena Cemilan Indonesia',
       followers: '12K Likes',
-      icon: Facebook,
+      icon: FacebookIcon,
       href: '#',
       color: 'hover:border-blue-600 hover:text-blue-600',
     },
@@ -33,7 +34,7 @@ export default function InfoSidebar() {
       name: 'YouTube',
       handle: 'Serena Heritage Kitchen',
       followers: 'Artisanal Recipe Videos',
-      icon: Youtube,
+      icon: YoutubeIcon,
       href: '#',
       color: 'hover:border-red-600 hover:text-red-600',
     },
