@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type ProductCategory =
   | "Traditional Snacks"
   | "Cookies"
@@ -13,8 +15,8 @@ export interface Product {
   compareAtPrice?: number;
   rating: number;
   reviewCount: number;
-  image: string;
-  gallery: string[];
+  image: string | StaticImageData;
+  gallery: (string | StaticImageData)[];
   description: string;
   longDescription: string;
   ingredients: string[];
