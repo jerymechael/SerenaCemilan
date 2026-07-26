@@ -1,10 +1,8 @@
 export type ProductCategory =
   | "Traditional Snacks"
   | "Cookies"
-  | "Snack Jars"
-  | "Bulk Snacks"
-  | "Chips"
-  | "Hampers";
+  | "Crackers"
+  | "Chips";
 
 export interface Product {
   id: string;
