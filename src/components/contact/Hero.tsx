@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export default function Hero() {
-  const whatsappUrl = "https://wa.me/6281288889900?text=Halo%20Serena%20Cemilan%2C%20saya%20ingin%20memesan%20cemilan%20tradisional%20Indonesia.";
+  const whatsappUrl = "https://wa.me/6281290655797?text=Halo%20Serena%20Cemilan%2C%20saya%20tertarik%20dengan%20produknya.%20Bisa%20dibantu%20info%20lebih%20lanjut%3F";
 
   const highlights = [
     {
