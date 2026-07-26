@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { Award, Cookie, Heart, Sparkles, ArrowRight, PhoneCall } from "lucide-react";
 
 const stats = [
-  { icon: Award, value: "10+ Years", label: "Experience" },
-  { icon: Cookie, value: "40+", label: "Snack Variants" },
-  { icon: Heart, value: "10,000+", label: "Happy Customers" },
+  { icon: Award, value: "6+ Years", label: "Experience" },
+  { icon: Cookie, value: "10+", label: "Snack Variants" },
+  { icon: Heart, value: "100+", label: "Happy Customers" },
   { icon: Sparkles, value: "100%", label: "Homemade" },
 ];
 

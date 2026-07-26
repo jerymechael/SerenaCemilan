@@ -3,15 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { PlayCircle } from "lucide-react";
+import { PlayCircle, Award, Cookie, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/common/Button";
 import heroImage from "@/lib/data/Home/bghome.jpeg";
 
 const stats = [
-  { label: "Happy Customers", value: "5000+" },
-  { label: "Snack Variants", value: "80+" },
-  { label: "Experience", value: "10 Yrs" },
-  { label: "Homemade", value: "100%" },
+  { icon: Award, value: "6 Yrs", label: "Experience" },
+  { icon: Cookie, value: "10+", label: "Snack Variants" },
+  { icon: Heart, value: "100+", label: "Happy Customers" },
+  { icon: Sparkles, value: "100%", label: "Homemade" },
 ];
 
 export function Hero() {
@@ -90,20 +90,28 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="container-app absolute inset-x-0 bottom-6 sm:bottom-8"
         >
-          <div className="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-white/60 bg-white/85 px-4 py-3 text-center card-shadow backdrop-blur-sm"
-              >
-                <p className="font-display text-sm font-bold text-brown sm:text-base">
-                  {stat.value}
-                </p>
-                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-foreground/50 sm:text-[11px]">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+          <div className="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-2">
+            {stats.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className="flex items-center gap-2.5 rounded-2xl border border-white/60 bg-white/85 px-3.5 py-3 card-shadow backdrop-blur-sm"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cream text-brown">
+                    <Icon size={15} />
+                  </span>
+                  <div>
+                    <p className="font-display text-sm font-bold leading-tight text-foreground">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] leading-tight text-foreground/50">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

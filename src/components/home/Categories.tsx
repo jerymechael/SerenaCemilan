@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { ArrowUpRight, MoveHorizontal } from "lucide-react";
 import { Reveal } from "@/components/common/Reveal";
 
 import chips from "@/lib/data/categoryproduct/Chips.jpeg";
@@ -122,11 +123,27 @@ export function Categories() {
   return (
     <section className="overflow-hidden bg-cream py-20 lg:py-24">
       <div className="container-app">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">
-            Browse Our Collections
-          </h2>
-        </Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <Reveal className="max-w-xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Browse Our{" "}
+              <span className="italic font-medium text-brown">Collections</span>
+            </h2>
+            <p className="mt-3 text-foreground/60">
+              A closer look at our snack variants — from traditional bites and
+              buttery cookies to crisp crackers, chips, and gift-ready hampers,
+              each one handcrafted with authentic recipes.
+            </p>
+          </Reveal>
+
+          <Reveal
+            direction="left"
+            className="hidden items-center gap-2 text-xs font-medium uppercase tracking-wide text-foreground/40 sm:flex"
+          >
+            <MoveHorizontal size={15} />
+            Drag or scroll to explore
+          </Reveal>
+        </div>
       </div>
 
       <div className="relative mt-12 w-full">
@@ -149,7 +166,7 @@ export function Categories() {
               key={`${category.slug}-${i}`}
               href={`/products?category=${encodeURIComponent(category.slug)}`}
               draggable={false}
-              className="group relative block aspect-square w-[62vw] shrink-0 overflow-hidden rounded-3xl card-shadow sm:w-56 lg:w-64"
+              className="group relative block aspect-square w-[62vw] shrink-0 overflow-hidden rounded-3xl border border-white/40 card-shadow transition-shadow duration-300 hover:card-shadow-lg sm:w-56 lg:w-64"
             >
               <Image
                 src={category.image}
@@ -159,10 +176,18 @@ export function Categories() {
                 sizes="(max-width: 1024px) 62vw, 256px"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-              <p className="absolute bottom-4 left-4 font-display text-base font-medium text-white sm:text-lg">
-                {category.name}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
+
+              <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:bg-white group-hover:text-brown">
+                <ArrowUpRight size={16} />
+              </span>
+
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="font-display text-base font-medium text-white sm:text-lg">
+                  {category.name}
+                </p>
+                <span className="mt-1 block h-px w-8 bg-caramel/70 transition-all duration-300 group-hover:w-12" />
+              </div>
             </Link>
           ))}
         </div>

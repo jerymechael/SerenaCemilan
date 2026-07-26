@@ -31,8 +31,8 @@ export default function Hero() {
     {
       icon: MapPin,
       title: 'Kitchen & Gallery',
-      value: 'Jakarta Selatan, Indonesia',
-      href: '#',
+      value: 'Cilegon, Banten, Indonesia',
+      href: 'https://maps.app.goo.gl/CBvkhC7toBdG6Ygv5',
     },
     {
       icon: Clock,

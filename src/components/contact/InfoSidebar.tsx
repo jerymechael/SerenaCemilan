@@ -64,7 +64,7 @@ export default function InfoSidebar() {
             <div>
               <div className="font-bold text-[#6E4A2E]">Serena Heritage Kitchen</div>
               <p className="text-xs text-[#83746B] mt-0.5 leading-relaxed">
-                Jl. Senopati No. 88, Kebayoran Baru, Jakarta Selatan 12190, Indonesia
+                Perumahan Bukit Cilegon Asri, Cilegon, Banten, Indonesia. 
               </p>
             </div>
           </div>
@@ -123,11 +123,11 @@ export default function InfoSidebar() {
             <div className="relative z-10 text-white space-y-1 p-2">
               <MapPin className="w-8 h-8 text-[#D8A25E] mx-auto animate-bounce" />
               <p className="font-display font-bold text-sm">Open in Google Maps</p>
-              <p className="text-[10px] text-white/80">Jakarta Selatan, Indonesia</p>
+              <p className="text-[10px] text-white/80">Cilegon, Indonesia</p>
             </div>
           </div>
           <a
-            href="https://maps.google.com"
+            href="https://maps.app.goo.gl/CBvkhC7toBdG6Ygv5"
             target="_blank"
             rel="noreferrer"
             className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#8B5E3C] hover:text-[#6E4A2E] transition-colors"

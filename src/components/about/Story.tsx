@@ -2,49 +2,59 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { HeartHandshake, UtensilsCrossed, Sparkles, MapPin, Calendar } from 'lucide-react';
+import { Sparkles, MapPin, Calendar, HeartHandshake } from 'lucide-react';
+import storyImage from '@/lib/data/about/story.jpeg';
 
 export default function Story() {
+  const quickFacts = [
+    { icon: MapPin, label: 'Jakarta, Indonesia' },
+    { icon: Calendar, label: 'Est. 2020' },
+    { icon: HeartHandshake, label: 'Family-Owned' },
+  ];
+
   const timeline = [
     {
-      year: '2014',
+      year: '2020',
       title: 'Business Started',
       desc: 'Founded in a home kitchen in Jakarta with a passion for traditional family snack recipes.',
     },
     {
-      year: '2018',
+      year: '2022',
       title: 'Expanded Product Line',
       desc: 'Introduced over 20 artisanal variants including signature cookies and savory traditional bites.',
     },
     {
-      year: '2021',
+      year: '2024',
       title: 'Online Ordering',
       desc: 'Launched digital store enabling seamless ordering for sweet and savory Indonesian snack lovers.',
     },
     {
-      year: '2025',
+      year: '2026',
       title: 'Nationwide Delivery',
-      desc: 'Established dedicated packaging & express logistics serving customers across all islands of Indonesia.',
+      desc: 'Established dedicated packaging & express logistics serving customers across all islands of Indonesia — and still growing today.',
     },
   ];
 
   return (
     <section className="py-16 lg:py-24 bg-[#FFF8F0]/60 relative overflow-hidden">
-      <div className="container-app">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+      {/* Soft decorative glow for depth, echoes other sections on the site */}
+      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#D8A25E]/15 blur-3xl" />
+
+      <div className="container-app relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
           {/* Left Column: Image with decorative frame */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 lg:sticky lg:top-28 relative"
           >
             <div className="relative rounded-3xl overflow-hidden card-shadow-lg border-4 border-white">
               <div className="aspect-[4/5] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
+                  src={storyImage}
                   alt="Authentic handcrafted snack making process"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -53,11 +63,12 @@ export default function Story() {
               </div>
 
               {/* Overlay quote box */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#FFF8F0] card-shadow">
-                <p className="text-xs sm:text-sm text-[#6E4A2E] italic font-display">
-                  "Every batch is baked with the exact care and authentic ingredients passed down from our grandmother."
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-[#FFF8F0] bg-white/95 p-5 card-shadow backdrop-blur-md">
+                <span className="font-display text-4xl leading-none text-[#D8A25E]">&ldquo;</span>
+                <p className="-mt-2 font-display text-xs italic leading-relaxed text-[#6E4A2E] sm:text-sm">
+                  Every batch is baked with the exact care and authentic ingredients passed down from our grandmother.
                 </p>
-                <div className="mt-2 text-xs font-semibold text-[#8B5E3C] uppercase tracking-wider">
+                <div className="mt-3 text-xs font-semibold uppercase tracking-wider text-[#8B5E3C]">
                   — Serena Family Kitchen
                 </div>
               </div>
@@ -73,20 +84,34 @@ export default function Story() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-8"
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-[#D8A25E] bg-white px-3 py-1 rounded-full border border-[#D8A25E]/20">
-                HERITAGE & JOURNEY
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D8A25E]/20 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#D8A25E]">
+                <Sparkles className="h-3.5 w-3.5" />
+                Heritage &amp; Journey
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#6E4A2E] font-bold mt-3">
-                Our Story
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-[#6E4A2E] sm:text-4xl lg:text-5xl">
+                Our <span className="italic font-medium text-[#8B5E3C]">Story</span>
               </h2>
+
+              {/* Quick facts row */}
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+                {quickFacts.map((fact, i) => (
+                  <React.Fragment key={fact.label}>
+                    {i > 0 && <span className="hidden h-4 w-px bg-[#8B5E3C]/15 sm:block" />}
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-[#83746B]">
+                      <fact.icon className="h-3.5 w-3.5 text-[#8B5E3C]" />
+                      {fact.label}
+                    </span>
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-4 text-[#51443C] text-base leading-relaxed">
+            <div className="space-y-4 text-justify text-base leading-relaxed text-[#51443C]">
               <p>
-                Serena Cemilan started as a humble small family business driven by a heartfelt mission: to keep Indonesia’s rich culinary heritage alive in every home. What began in a warm family kitchen with simple baking sheets has grown into a beloved name cherished by snack enthusiasts nationwide.
+                Serena Cemilan started as a humble small family business driven by a heartfelt mission: to keep Indonesia&rsquo;s rich culinary heritage alive in every home. What began in a warm family kitchen with simple baking sheets has grown into a beloved name cherished by snack enthusiasts nationwide.
               </p>
               <p>
                 We strictly honor traditional recipes and select only premium local ingredients—from pure palm sugar and freshly harvested spices to unrefined coconut and high-grade flour. Our handcrafted process ensures every cookie, crisp, and traditional delicacy delivers an authentic taste that evokes memories of warmth and celebration.
@@ -96,32 +121,38 @@ export default function Story() {
               </p>
             </div>
 
-            {/* Timeline Cards */}
-            <div className="pt-6">
-              <h3 className="text-sm font-semibold text-[#8B5E3C] uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-[#D8A25E]" />
+            {/* Timeline — connected vertical rail instead of a plain card grid */}
+            <div className="pt-4">
+              <h3 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[#8B5E3C]">
+                <Calendar className="h-4 w-4 text-[#D8A25E]" />
                 Key Milestones
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative space-y-7 pl-9">
+                <div className="absolute left-[13px] top-1.5 bottom-1.5 w-px bg-gradient-to-b from-[#D8A25E]/60 via-[#8B5E3C]/25 to-transparent" />
+
                 {timeline.map((item, idx) => (
                   <motion.div
                     key={item.year}
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="p-4 rounded-2xl bg-white border border-[#FFF8F0] card-shadow hover:border-[#D8A25E] transition-all duration-300 group"
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className="group relative"
                   >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#8B5E3C] text-white text-xs font-bold font-display">
+                    <span className="absolute -left-9 top-0.5 flex h-[27px] w-[27px] items-center justify-center rounded-full border-2 border-[#FFF8F0] bg-[#8B5E3C] text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#D8A25E]" />
+                    </span>
+
+                    <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+                      <span className="font-display text-lg font-semibold text-[#8B5E3C]">
                         {item.year}
                       </span>
-                      <h4 className="font-bold text-[#6E4A2E] text-sm group-hover:text-[#8B5E3C] transition-colors">
+                      <h4 className="text-sm font-bold text-[#6E4A2E] transition-colors group-hover:text-[#8B5E3C]">
                         {item.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-[#83746B] leading-normal">
+                    <p className="mt-1 max-w-md text-sm leading-relaxed text-[#83746B]">
                       {item.desc}
                     </p>
                   </motion.div>
