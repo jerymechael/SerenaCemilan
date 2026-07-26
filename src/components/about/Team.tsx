@@ -2,12 +2,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Heart, Instagram, Facebook, Mail, MessageCircle, Sparkles } from 'lucide-react';
+import { Heart, Mail, MessageCircle, Sparkles } from 'lucide-react';
+import { InstagramIcon, FacebookIcon } from '@/components/common/SocialIcons';
 
 export default function Team() {
   const socialLinks = [
-    { icon: Instagram, label: 'Instagram', href: '#' },
-    { icon: Facebook, label: 'Facebook', href: '#' },
+    { icon: InstagramIcon, label: 'Instagram', href: '#' },
+    { icon: FacebookIcon, label: 'Facebook', href: '#' },
     { icon: MessageCircle, label: 'WhatsApp', href: '#' },
     { icon: Mail, label: 'Email', href: '#' },
   ];
@@ -75,7 +76,7 @@ export default function Team() {
               </p>
 
               <p className="text-[#51443C] text-base leading-relaxed italic border-l-2 border-[#D8A25E] pl-4">
-                "To us, baking is not just work—it is an act of love to share warmth, happiness, and authentic Indonesian flavors with families across the nation."
+                &ldquo;To us, baking is not just work—it is an act of love to share warmth, happiness, and authentic Indonesian flavors with families across the nation.&rdquo;
               </p>
 
               {/* Social Placeholders */}
